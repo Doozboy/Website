@@ -227,69 +227,68 @@ function App() {
       
       {/* Hero Section */}
    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#000000] via-[#010017] to-[#000000] text-white">
-      {/* Sophisticated Grid Background with Deep Blue Blur */}
+      {/* Sophisticated Grid Background Pattern */}
       <div className="absolute inset-0 opacity-40">
-        {/* Deep blue gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1a4a]/90 via-[#1e3a8a]/70 to-[#1e1b4b]/80"></div>
+        {/* Base dark gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0f0f23]/95 via-[#1a1a2e]/90 to-[#16213e]/95"></div>
         
-        {/* Main grid pattern */}
+        {/* Sophisticated grid pattern */}
         <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            {/* Primary grid pattern */}
-            <pattern id="primaryGrid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="1"/>
-              <circle cx="0" cy="0" r="1" fill="rgba(59, 130, 246, 0.6)"/>
+            {/* Main grid pattern - larger squares */}
+            <pattern id="mainGrid" width="80" height="80" patternUnits="userSpaceOnUse">
+              <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(99, 102, 241, 0.15)" strokeWidth="1"/>
             </pattern>
             
-            {/* Secondary fine grid */}
-            <pattern id="secondaryGrid" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(99, 179, 237, 0.15)" strokeWidth="0.5"/>
+            {/* Fine grid pattern - smaller squares */}
+            <pattern id="fineGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(139, 92, 246, 0.08)" strokeWidth="0.5"/>
             </pattern>
             
-            {/* Accent lines */}
-            <pattern id="accentLines" width="120" height="120" patternUnits="userSpaceOnUse">
-              <path d="M 0 60 L 120 60" stroke="rgba(147, 197, 253, 0.3)" strokeWidth="2"/>
-              <path d="M 60 0 L 60 120" stroke="rgba(147, 197, 253, 0.3)" strokeWidth="2"/>
+            {/* Accent grid lines - major divisions */}
+            <pattern id="accentGrid" width="160" height="160" patternUnits="userSpaceOnUse">
+              <path d="M 0 80 L 160 80" stroke="rgba(99, 102, 241, 0.25)" strokeWidth="1.5"/>
+              <path d="M 80 0 L 80 160" stroke="rgba(99, 102, 241, 0.25)" strokeWidth="1.5"/>
             </pattern>
             
-            {/* Deep blue blur filter */}
-            <filter id="deepBlueGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-              <feColorMatrix in="coloredBlur" type="matrix" 
-                values="0.2 0.4 1.0 0 0
-                        0.1 0.3 0.8 0 0
-                        0.0 0.2 0.9 0 0
-                        0 0 0 0.8 0"/>
+            {/* Deep blue blur effect */}
+            <filter id="gridBlur" x="-100%" y="-100%" width="300%" height="300%">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feColorMatrix in="blur" type="matrix" 
+                values="0.3 0.4 1.2 0 0
+                        0.2 0.3 1.0 0 0
+                        0.1 0.2 0.8 0 0
+                        0 0 0 0.6 0"/>
               <feMerge> 
-                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="blur"/>
                 <feMergeNode in="SourceGraphic"/>
               </feMerge>
             </filter>
             
-            {/* Subtle glow for grid intersections */}
-            <filter id="intersectionGlow">
-              <feGaussianBlur stdDeviation="2" result="softGlow"/>
+            {/* Subtle glow for accent lines */}
+            <filter id="accentGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="2" result="glow"/>
               <feMerge> 
-                <feMergeNode in="softGlow"/>
+                <feMergeNode in="glow"/>
                 <feMergeNode in="SourceGraphic"/>
               </feMerge>
             </filter>
           </defs>
           
-          {/* Layer the grid patterns */}
-          <rect width="100%" height="100%" fill="url(#secondaryGrid)" opacity="0.3"/>
-          <rect width="100%" height="100%" fill="url(#primaryGrid)" filter="url(#deepBlueGlow)"/>
-          <rect width="100%" height="100%" fill="url(#accentLines)" filter="url(#intersectionGlow)" opacity="0.6"/>
+          {/* Layer the grid patterns for depth */}
+          <rect width="100%" height="100%" fill="url(#fineGrid)" opacity="0.4"/>
+          <rect width="100%" height="100%" fill="url(#mainGrid)" filter="url(#gridBlur)" opacity="0.7"/>
+          <rect width="100%" height="100%" fill="url(#accentGrid)" filter="url(#accentGlow)" opacity="0.8"/>
         </svg>
         
-        {/* Additional blur overlay for depth */}
-        <div className="absolute inset-0 backdrop-blur-[0.5px] bg-gradient-to-br from-blue-900/20 via-transparent to-blue-800/10"></div>
+        {/* Deep blue blur overlay for sophistication */}
+        <div className="absolute inset-0 backdrop-blur-[1px] bg-gradient-to-br from-indigo-900/15 via-purple-900/10 to-blue-900/20"></div>
       </div>
       <FloatingIcons />
-        {/* Floating Glow Orbs */}
+        {/* Floating Glow Orbs - adjusted for grid harmony */}
         <div className="absolute top-1/4 left-[90%] w-96 h-96 bg-[#32008a]/60 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1 right-[90%] w-96 h-96 bg-[#00098a]/70 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/7 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#0088ff]/30 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-1/6 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#6366f1]/25 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
         
         <div className="container mx-auto px-8 py-20">
           <div className="relative z-10">
