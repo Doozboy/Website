@@ -227,25 +227,64 @@ function App() {
       
       {/* Hero Section */}
    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#000000] via-[#010017] to-[#000000] text-white">
-         {/* Sophisticated Grid Background */}
-        <div className="absolute inset-0 opacity-30">
-         <div className="absolute inset-0 bg-gradient-to-br from-[#0f0c29]/80 via-[#302b63]/60 to-[#24243e]/80"></div>
-          <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(59, 130, 246, 0.3)" strokeWidth="1"/>
-              </pattern>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                <feMerge> 
-                  <feMergeNode in="coloredBlur"/>
-                  <feMergeNode in="SourceGraphic"/>
-                </feMerge>
-              </filter>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" filter="url(#glow)"/>
-          </svg>
-        </div>
+      {/* Sophisticated Grid Background with Deep Blue Blur */}
+      <div className="absolute inset-0 opacity-40">
+        {/* Deep blue gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a1a4a]/90 via-[#1e3a8a]/70 to-[#1e1b4b]/80"></div>
+        
+        {/* Main grid pattern */}
+        <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            {/* Primary grid pattern */}
+            <pattern id="primaryGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(59, 130, 246, 0.4)" strokeWidth="1"/>
+              <circle cx="0" cy="0" r="1" fill="rgba(59, 130, 246, 0.6)"/>
+            </pattern>
+            
+            {/* Secondary fine grid */}
+            <pattern id="secondaryGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(99, 179, 237, 0.15)" strokeWidth="0.5"/>
+            </pattern>
+            
+            {/* Accent lines */}
+            <pattern id="accentLines" width="120" height="120" patternUnits="userSpaceOnUse">
+              <path d="M 0 60 L 120 60" stroke="rgba(147, 197, 253, 0.3)" strokeWidth="2"/>
+              <path d="M 60 0 L 60 120" stroke="rgba(147, 197, 253, 0.3)" strokeWidth="2"/>
+            </pattern>
+            
+            {/* Deep blue blur filter */}
+            <filter id="deepBlueGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+              <feColorMatrix in="coloredBlur" type="matrix" 
+                values="0.2 0.4 1.0 0 0
+                        0.1 0.3 0.8 0 0
+                        0.0 0.2 0.9 0 0
+                        0 0 0 0.8 0"/>
+              <feMerge> 
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+            
+            {/* Subtle glow for grid intersections */}
+            <filter id="intersectionGlow">
+              <feGaussianBlur stdDeviation="2" result="softGlow"/>
+              <feMerge> 
+                <feMergeNode in="softGlow"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          
+          {/* Layer the grid patterns */}
+          <rect width="100%" height="100%" fill="url(#secondaryGrid)" opacity="0.3"/>
+          <rect width="100%" height="100%" fill="url(#primaryGrid)" filter="url(#deepBlueGlow)"/>
+          <rect width="100%" height="100%" fill="url(#accentLines)" filter="url(#intersectionGlow)" opacity="0.6"/>
+        </svg>
+        
+        {/* Additional blur overlay for depth */}
+        <div className="absolute inset-0 backdrop-blur-[0.5px] bg-gradient-to-br from-blue-900/20 via-transparent to-blue-800/10"></div>
+      </div>
       <FloatingIcons />
         {/* Floating Glow Orbs */}
         <div className="absolute top-1/4 left-[90%] w-96 h-96 bg-[#32008a]/60 rounded-full blur-3xl animate-pulse"></div>
