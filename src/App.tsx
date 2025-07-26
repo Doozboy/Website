@@ -280,7 +280,12 @@ function App() {
           <rect width="100%" height="100%" fill="url(#mainGrid)" filter="url(#gridBlur)" opacity="0.7"/>
           <rect width="100%" height="100%" fill="url(#accentGrid)" filter="url(#accentGlow)" opacity="0.8"/>
         </svg>
-         y */}
+         
+        {/* Deep blue blur overlay for sophistication */}
+        <div className="absolute inset-0 backdrop-blur-[1px] bg-gradient-to-br from-indigo-900/15 via-purple-900/10 to-blue-900/20"></div>
+      </div>
+      <FloatingIcons />
+        {/* Floating Glow Orbs - adjusted for grid harmony */}
         <div className="absolute top-1/4 left-[90%] w-96 h-96 bg-[#32008a]/60 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1 right-[90%] w-96 h-96 bg-[#00098a]/70 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
         <div className="absolute top-1/7 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#0088ff]/30 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
