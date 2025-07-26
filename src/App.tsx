@@ -235,24 +235,58 @@ function App() {
         {/* Grid Pattern SVG */}
         <svg className="absolute inset-0 w-full h-full opacity-60" xmlns="http://www.w3.org/2000/svg">
           <defs>
-            {/* Main grid pattern - matching the reference */}
-            <pattern id="sophisticatedGrid" width="80" height="80" patternUnits="userSpaceOnUse">
+            {/* Small main grid pattern with wave effect */}
+            <pattern id="sophisticatedGrid" width="40" height="40" patternUnits="userSpaceOnUse">
               {/* Horizontal lines */}
-              <path d="M 0 0 L 80 0" stroke="rgba(59, 130, 246, 0.15)" strokeWidth="1" fill="none"/>
-              <path d="M 0 80 L 80 80" stroke="rgba(59, 130, 246, 0.15)" strokeWidth="1" fill="none"/>
+              <path d="M 0 0 L 40 0" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.8" fill="none">
+                <animate attributeName="stroke-opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite" begin="0s"/>
+              </path>
+              <path d="M 0 40 L 40 40" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.8" fill="none">
+                <animate attributeName="stroke-opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite" begin="1s"/>
+              </path>
               {/* Vertical lines */}
-              <path d="M 0 0 L 0 80" stroke="rgba(59, 130, 246, 0.15)" strokeWidth="1" fill="none"/>
-              <path d="M 80 0 L 80 80" stroke="rgba(59, 130, 246, 0.15)" strokeWidth="1" fill="none"/>
+              <path d="M 0 0 L 0 40" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.8" fill="none">
+                <animate attributeName="stroke-opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite" begin="2s"/>
+              </path>
+              <path d="M 40 0 L 40 40" stroke="rgba(59, 130, 246, 0.2)" strokeWidth="0.8" fill="none">
+                <animate attributeName="stroke-opacity" values="0.1;0.3;0.1" dur="4s" repeatCount="indefinite" begin="3s"/>
+              </path>
               {/* Corner dots */}
-              <circle cx="0" cy="0" r="1.5" fill="rgba(59, 130, 246, 0.4)"/>
-              <circle cx="80" cy="0" r="1.5" fill="rgba(59, 130, 246, 0.4)"/>
-              <circle cx="0" cy="80" r="1.5" fill="rgba(59, 130, 246, 0.4)"/>
-              <circle cx="80" cy="80" r="1.5" fill="rgba(59, 130, 246, 0.4)"/>
+              <circle cx="0" cy="0" r="1" fill="rgba(59, 130, 246, 0.5)">
+                <animate attributeName="r" values="0.5;1.5;0.5" dur="3s" repeatCount="indefinite" begin="0s"/>
+                <animate attributeName="fill-opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite" begin="0s"/>
+              </circle>
+              <circle cx="40" cy="0" r="1" fill="rgba(59, 130, 246, 0.5)">
+                <animate attributeName="r" values="0.5;1.5;0.5" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+                <animate attributeName="fill-opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite" begin="0.5s"/>
+              </circle>
+              <circle cx="0" cy="40" r="1" fill="rgba(59, 130, 246, 0.5)">
+                <animate attributeName="r" values="0.5;1.5;0.5" dur="3s" repeatCount="indefinite" begin="1s"/>
+                <animate attributeName="fill-opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite" begin="1s"/>
+              </circle>
+              <circle cx="40" cy="40" r="1" fill="rgba(59, 130, 246, 0.5)">
+                <animate attributeName="r" values="0.5;1.5;0.5" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+                <animate attributeName="fill-opacity" values="0.3;0.7;0.3" dur="3s" repeatCount="indefinite" begin="1.5s"/>
+              </circle>
             </pattern>
             
             {/* Fine grid overlay */}
-            <pattern id="fineGrid" width="20" height="20" patternUnits="userSpaceOnUse">
-              <path d="M 0 0 L 20 0 M 0 0 L 0 20" stroke="rgba(99, 179, 237, 0.08)" strokeWidth="0.5" fill="none"/>
+            <pattern id="fineGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+              <path d="M 0 0 L 10 0 M 0 0 L 0 10" stroke="rgba(99, 179, 237, 0.06)" strokeWidth="0.3" fill="none">
+                <animate attributeName="stroke-opacity" values="0.02;0.08;0.02" dur="6s" repeatCount="indefinite"/>
+              </path>
+            </pattern>
+            
+            {/* Wave effect pattern */}
+            <pattern id="waveGrid" width="80" height="80" patternUnits="userSpaceOnUse">
+              <path d="M 0 40 Q 20 20 40 40 T 80 40" stroke="rgba(139, 92, 246, 0.15)" strokeWidth="1" fill="none">
+                <animate attributeName="d" values="M 0 40 Q 20 20 40 40 T 80 40;M 0 40 Q 20 60 40 40 T 80 40;M 0 40 Q 20 20 40 40 T 80 40" dur="8s" repeatCount="indefinite"/>
+                <animate attributeName="stroke-opacity" values="0.1;0.25;0.1" dur="8s" repeatCount="indefinite"/>
+              </path>
+              <path d="M 40 0 Q 60 20 80 0" stroke="rgba(139, 92, 246, 0.1)" strokeWidth="0.8" fill="none">
+                <animate attributeName="d" values="M 40 0 Q 60 20 80 0;M 40 0 Q 60 -10 80 0;M 40 0 Q 60 20 80 0" dur="6s" repeatCount="indefinite" begin="2s"/>
+                <animate attributeName="stroke-opacity" values="0.05;0.15;0.05" dur="6s" repeatCount="indefinite" begin="2s"/>
+              </path>
             </pattern>
             
             {/* Deep blue blur filter */}
@@ -271,7 +305,7 @@ function App() {
             
             {/* Grid glow effect */}
             <filter id="gridGlow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
               <feColorMatrix in="coloredBlur" type="matrix" 
                 values="0.2 0.4 1.0 0 0
                         0.1 0.3 0.8 0 0
@@ -282,11 +316,26 @@ function App() {
                 <feMergeNode in="SourceGraphic"/>
               </feMerge>
             </filter>
+            
+            {/* Wave glow effect */}
+            <filter id="waveGlow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+              <feColorMatrix in="coloredBlur" type="matrix" 
+                values="0.3 0.2 1.0 0 0
+                        0.2 0.1 0.8 0 0
+                        0.1 0.0 0.9 0 0
+                        0 0 0 0.5 0"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
           </defs>
           
           {/* Apply grid patterns with blur effects */}
           <rect width="100%" height="100%" fill="url(#fineGrid)" opacity="0.4"/>
           <rect width="100%" height="100%" fill="url(#sophisticatedGrid)" filter="url(#gridGlow)"/>
+          <rect width="100%" height="100%" fill="url(#waveGrid)" filter="url(#waveGlow)" opacity="0.6"/>
         </svg>
         
         {/* Deep blue blur overlay behind content */}
