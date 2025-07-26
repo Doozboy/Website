@@ -241,7 +241,7 @@ function App() {
             </pattern>
             
             {/* Fine grid pattern - smaller squares */}
-            <pattern id="fineGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <pattern id="fineGrid" width="40" height="40" patternUnits="userSpaceOnUse">
               <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(139, 92, 246, 0.08)" strokeWidth="0.5"/>
             </pattern>
             
