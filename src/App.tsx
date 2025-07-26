@@ -236,17 +236,17 @@ function App() {
         <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             {/* Main grid pattern - larger squares */}
-            <pattern id="mainGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <pattern id="mainGrid" width="80" height="80" patternUnits="userSpaceOnUse">
               <path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(99, 102, 241, 0.15)" strokeWidth="1"/>
             </pattern>
             
             {/* Fine grid pattern - smaller squares */}
-            <pattern id="fineGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <pattern id="fineGrid" width="20" height="20" patternUnits="userSpaceOnUse">
               <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(139, 92, 246, 0.08)" strokeWidth="0.5"/>
             </pattern>
             
             {/* Accent grid lines - major divisions */}
-            <pattern id="accentGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+            <pattern id="accentGrid" width="160" height="160" patternUnits="userSpaceOnUse">
               <path d="M 0 80 L 160 80" stroke="rgba(99, 102, 241, 0.25)" strokeWidth="1.5"/>
               <path d="M 80 0 L 80 160" stroke="rgba(99, 102, 241, 0.25)" strokeWidth="1.5"/>
             </pattern>
@@ -280,7 +280,7 @@ function App() {
           <rect width="100%" height="100%" fill="url(#mainGrid)" filter="url(#gridBlur)" opacity="0.7"/>
           <rect width="100%" height="100%" fill="url(#accentGrid)" filter="url(#accentGlow)" opacity="0.8"/>
         </svg>
-        
+         
         {/* Deep blue blur overlay for sophistication */}
         <div className="absolute inset-0 backdrop-blur-[1px] bg-gradient-to-br from-indigo-900/15 via-purple-900/10 to-blue-900/20"></div>
       </div>
@@ -288,7 +288,7 @@ function App() {
         {/* Floating Glow Orbs - adjusted for grid harmony */}
         <div className="absolute top-1/4 left-[90%] w-96 h-96 bg-[#32008a]/60 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-1 right-[90%] w-96 h-96 bg-[#00098a]/70 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/6 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#6366f1]/25 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
+        <div className="absolute top-1/7 left-1/3 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-[#0088ff]/30 rounded-full blur-3xl animate-pulse" style={{animationDelay: '4s'}}></div>
         
         <div className="container mx-auto px-8 py-20">
           <div className="relative z-10">
