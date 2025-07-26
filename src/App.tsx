@@ -256,7 +256,7 @@ function App() {
           <div className="relative z-10">
             {/* Hero Content */}
             <div className="text-center mb-8 md:mb-15">
-              <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent text-glow-blue">
+              <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-4 md:mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Aamir Naqvi
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-6 md:mb-8 max-w-2xl mx-auto px-4 text-glow-gray">
