@@ -246,7 +246,7 @@ function App() {
             </pattern>
             
             {/* Accent grid lines - major divisions */}
-            <pattern id="accentGrid" width="160" height="160" patternUnits="userSpaceOnUse">
+            <pattern id="accentGrid" width="40" height="40" patternUnits="userSpaceOnUse">
               <path d="M 0 80 L 160 80" stroke="rgba(99, 102, 241, 0.25)" strokeWidth="1.5"/>
               <path d="M 80 0 L 80 160" stroke="rgba(99, 102, 241, 0.25)" strokeWidth="1.5"/>
             </pattern>
